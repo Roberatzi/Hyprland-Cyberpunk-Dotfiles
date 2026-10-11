@@ -1,1 +1,1 @@
-![Arch Linux Hyprland Desktop](assets/desktop.png)
+![Arch Linux Hyprland Desktop](assets/Kitty-Layout.png)
