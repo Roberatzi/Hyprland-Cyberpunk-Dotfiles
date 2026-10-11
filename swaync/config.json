@@ -1,0 +1,118 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "center",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "layer-shell": true,
+  "layer-shell-cover-screen": false,
+  "cssPriority": "user",
+
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 0,
+  "control-center-margin-left": 0,
+  "control-center-width": 450,
+  "control-center-height": 640,
+  "fit-to-screen": false,
+
+  "notification-window-width": 400,
+  "notification-icon-size": 40,
+  "notification-body-image-height": 180,
+  "notification-body-image-width": 360,
+  "notification-inline-replies": true,
+  "notification-2fa-action": false,
+
+  "timeout": 3,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+  "transition-time": 200,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  "script-fail-notify": true,
+
+  "widgets": [
+    "title",
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "dnd",
+    "mpris",
+    "notifications"
+  ],
+
+  "widget-config": {
+    "title": {
+      "text": "◈ NEON//VOID",
+      "clear-all-button": true,
+      "button-text": "CLEAR"
+    },
+
+    "dnd": {
+      "text": "DND"
+    },
+
+    "backlight": {
+      "device": "amdgpu_bl1",
+      "label": "\uDB80\uDCE0",
+      "slider": true,
+      "min": 10
+    },
+
+    "volume": {
+      "device": "default",
+      "label": "\uf028",
+      "slider": true
+    },
+
+    "mpris": {
+      "image-size": 72,
+      "image-radius": 0,
+      "autohide": true,
+      "blacklist": ["org.mpris.MediaPlayer2.playerctld"]
+    },
+
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "\uDB80\uDF2A",
+          "type": "toggle",
+          "command": "$HOME/.local/bin/powerprofile --toggle-quiet",
+          "update-command": "$HOME/.local/bin/powerprofile --is-quiet"
+        },
+        {
+          "label": "\uf0f4 ",
+          "type": "toggle",
+          "command": "$HOME/.local/bin/caffeine",
+          "update-command": "$HOME/.local/bin/caffeine --is-running"
+        },
+        {
+          "label": "\uf130",
+          "type": "toggle",
+          "command": "$HOME/.local/bin/mictoggle --silent",
+          "update-command": "$HOME/.local/bin/mictoggle --is-muted"
+        },
+        {
+          "label": "\uf2db ",
+          "command": "$HOME/.config/swaync/scripts/htop"
+        },
+        {
+          "label": "\uDB80\uDCDF ",
+          "type": "toggle",
+          "command": "$HOME/.local/bin/themesw",
+          "update-command": "[ $($HOME/.local/bin/themesw --current) = light ] && echo true || echo false"
+        },
+        {
+          "label": "\uf1fc ",
+          "command": "$HOME/.config/swaync/scripts/nwg-look"
+        },
+        {
+          "label": "\uf011",
+          "command": "swaync-client -cp ; qs -p $HOME/.config/quickshell/powermenu/shell.qml"
+        }
+      ]
+    }
+  }
+}

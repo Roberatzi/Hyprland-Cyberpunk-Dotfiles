@@ -1,0 +1,139 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "margin-top": 7,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 0,
+  "exclusive": true,
+  "fixed-center": true,
+  "modules-left": [
+    "custom/brand",
+    "hyprland/workspaces",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/power",
+    "clock#date"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "temperature",
+    "pulseaudio",
+    "network",
+    "battery",
+    "tray"
+  ],
+  "custom/brand": {
+    "exec": "whoami | tr '[:lower:]' '[:upper:]'",
+    "interval": 3600,
+    "format": "◈ {}",
+    "tooltip": true,
+    "tooltip-format": "NEON//VOID - System Interface"
+  },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"+1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"-1\" })'",
+    "all-outputs": true,
+    "show-special": true,
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "hyprland/submap": {
+    "format": "⌘ {submap}",
+    "tooltip": false
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "tooltip": false
+  },
+  "clock#date": {
+    "interval": 60,
+    "format": "{:%d.%m.%Y}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %d. %B %Y}"
+  },
+  "custom/power": {
+    "format": "󰍜",
+    "tooltip": true,
+    "tooltip-format": "NEON//VOID // Control Center",
+    "on-click": "swaync-client -t -sw"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "CPU {usage}%",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    },
+    "tooltip": true
+  },
+  "memory": {
+    "interval": 3,
+    "format": "RAM {percentage}%",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "tooltip-format": "RAM: {used:0.1f} GiB / {total:0.1f} GiB"
+  },
+  "disk": {
+    "interval": 30,
+    "path": "/",
+    "format": "SSD {percentage_used}%",
+    "tooltip-format": "Belegt: {used} / {total}"
+  },
+  "temperature": {
+    "interval": 5,
+    "format": "TEMP {temperatureC}°",
+    "critical-threshold": 85,
+    "format-critical": "TEMP {temperatureC}°!"
+  },
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "format-muted": "VOL MUTE",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "tooltip": true
+  },
+  "network": {
+    "format-wifi": "NET {signalStrength}%",
+    "format-ethernet": "NET LAN",
+    "format-disconnected": "NET OFF",
+    "interval": 5,
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "on-click": "kitty --class nmtui -e nmtui",
+    "on-click-right": "nm-connection-editor"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "BAT {capacity}%",
+    "format-charging": "BAT +{capacity}%",
+    "format-plugged": "BAT AC",
+    "tooltip": true
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 5
+  }
+}

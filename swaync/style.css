@@ -1,0 +1,365 @@
+/* NEON//VOID – SwayNC, abgestimmt auf Waybar */
+
+@define-color bg        rgba(8, 12, 20, 0.92);
+@define-color bg-alt    rgba(14, 22, 34, 0.94);
+@define-color bg-deep   rgba(6, 13, 22, 0.97);
+@define-color fg        #d8e6f2;
+@define-color muted     #71869a;
+@define-color dim       #465769;
+@define-color border    rgba(62, 91, 112, 0.38);
+@define-color cyan      #27e8f4;
+@define-color magenta   #f04dce;
+@define-color purple    #b18aff;
+@define-color amber     #ffbd69;
+@define-color red       #ff5277;
+@define-color green     #b9e986;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 0;
+  min-height: 0;
+  transition: all 150ms ease;
+}
+
+.blank-window {
+  background: transparent;
+}
+
+/* ================= Popups ================= */
+.floating-notifications {
+  background: transparent;
+}
+
+.notification-row {
+  outline: none;
+  background: transparent;
+}
+
+.notification-background {
+  background: @bg;
+  color: @fg;
+  border: 1px solid @border;
+  border-top: 2px solid @cyan;
+  border-bottom: 1px solid alpha(@cyan, 0.35);
+  margin: 7px 10px 0 10px;
+  padding: 0;
+}
+
+.control-center .notification-background {
+  margin: 4px 8px;
+}
+
+.notification-background:hover {
+  background: @bg-deep;
+  border-color: alpha(@cyan, 0.55);
+}
+
+.notification-background.critical,
+.notification.critical {
+  border-top-color: @red;
+  border-bottom-color: alpha(@red, 0.6);
+}
+
+.notification {
+  background: transparent;
+  padding: 0;
+}
+
+.notification-content {
+  background: transparent;
+  padding: 10px;
+}
+
+.notification-content .image {
+  margin-right: 10px;
+  border: 1px solid @border;
+}
+
+.summary {
+  color: @cyan;
+  font-size: 11px;
+}
+
+.time {
+  color: @muted;
+  margin-left: 8px;
+}
+
+.body {
+  color: @fg;
+  font-weight: 500;
+}
+
+.body-image {
+  border: 1px solid @border;
+  margin-top: 6px;
+}
+
+/* Schließen */
+.close-button {
+  background: @bg-deep;
+  color: @magenta;
+  border: 1px solid alpha(@magenta, 0.5);
+  margin: 6px;
+  padding: 0 4px;
+  text-shadow: none;
+}
+
+.close-button:hover {
+  background: alpha(@magenta, 0.25);
+  color: #ffffff;
+  border-color: @cyan;
+}
+
+/* Aktionen */
+.notification-action {
+  background: transparent;
+  color: @muted;
+  border: none;
+  border-top: 1px solid @border;
+  padding: 6px;
+}
+
+.notification-action:hover {
+  background: alpha(@cyan, 0.10);
+  color: @cyan;
+}
+
+.notification-action:not(:first-child) {
+  border-left: 1px solid @border;
+}
+
+/* Inline-Antwort */
+.notification-inline-reply {
+  border-top: 1px solid @border;
+  padding: 6px;
+}
+
+.inline-reply-entry {
+  background: @bg-deep;
+  color: @fg;
+  border: 1px solid @border;
+  padding: 4px 8px;
+  caret-color: @magenta;
+}
+
+.inline-reply-entry:focus {
+  border-color: @cyan;
+}
+
+.inline-reply-button {
+  background: @bg-deep;
+  color: @cyan;
+  border: 1px solid alpha(@cyan, 0.5);
+  margin-left: 6px;
+  padding: 4px 10px;
+}
+
+.inline-reply-button:hover {
+  background: alpha(@cyan, 0.15);
+  color: #ffffff;
+}
+
+/* ================= Control Center ================= */
+.control-center {
+  background: @bg;
+  color: @fg;
+  border: 1px solid @border;
+  border-top: 2px solid @cyan;
+  border-bottom: 2px solid @magenta;
+  padding: 4px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  color: @dim;
+  font-size: 11px;
+}
+
+/* Titel */
+.widget-title {
+  margin: 6px 8px 2px 8px;
+  padding: 0;
+}
+
+.widget-title > label {
+  color: @cyan;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.widget-title > button {
+  background: @bg-deep;
+  color: @magenta;
+  border: 1px solid alpha(@magenta, 0.5);
+  padding: 3px 10px;
+}
+
+.widget-title > button:hover {
+  background: alpha(@magenta, 0.22);
+  color: #ffffff;
+  border-color: @cyan;
+}
+
+/* Buttons-Grid */
+.widget-buttons-grid {
+  background: @bg-alt;
+  border: 1px solid @border;
+  margin: 6px 8px;
+  padding: 6px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @bg-deep;
+  color: @muted;
+  border: 1px solid @border;
+  border-bottom: 2px solid @border;
+  margin: 2px;
+  padding: 10px 0;
+  font-size: 15px;
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 40px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  color: @fg;
+  background: alpha(@cyan, 0.08);
+  border-color: alpha(@cyan, 0.5);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  color: @cyan;
+  background: alpha(@cyan, 0.12);
+  border-color: alpha(@cyan, 0.45);
+  border-bottom: 2px solid @cyan;
+}
+
+/* Slider (Volume / Backlight) */
+.widget-volume,
+.widget-backlight {
+  background: @bg-alt;
+  border: 1px solid @border;
+  margin: 2px 8px;
+  padding: 6px 10px;
+}
+
+.widget-volume > box > label,
+.widget-backlight > box > label {
+  color: @cyan;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.widget-backlight > box > label {
+  color: @amber;
+}
+
+scale trough {
+  background: alpha(@cyan, 0.15);
+  border: none;
+  min-height: 4px;
+}
+
+scale trough highlight {
+  background: @cyan;
+}
+
+.widget-backlight scale trough {
+  background: alpha(@amber, 0.18);
+}
+
+.widget-backlight scale trough highlight {
+  background: @amber;
+}
+
+scale slider {
+  background: @magenta;
+  border: none;
+  min-width: 10px;
+  min-height: 10px;
+  margin: -4px 0;
+}
+
+/* Do not disturb */
+.widget-dnd {
+  margin: 6px 8px;
+  color: @purple;
+}
+
+.widget-dnd > label {
+  color: @purple;
+}
+
+.widget-dnd > switch {
+  background: @bg-deep;
+  border: 1px solid @border;
+  padding: 0;
+}
+
+.widget-dnd > switch:checked {
+  background: alpha(@cyan, 0.15);
+  border-color: @cyan;
+}
+
+.widget-dnd > switch slider {
+  background: @muted;
+  border: none;
+  min-width: 14px;
+  min-height: 14px;
+  margin: 0;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @cyan;
+}
+
+/* Medienplayer */
+.widget-mpris {
+  background: @bg-alt;
+  border: 1px solid @border;
+  border-left: 2px solid @purple;
+  margin: 6px 8px;
+  padding: 6px;
+  color: @fg;
+}
+
+.widget-mpris-title {
+  color: @purple;
+  font-size: 11px;
+}
+
+.widget-mpris-subtitle {
+  color: @muted;
+}
+
+.widget-mpris button {
+  background: transparent;
+  color: @muted;
+  border: none;
+  padding: 2px 6px;
+}
+
+.widget-mpris button:hover {
+  background: alpha(@cyan, 0.10);
+  color: @cyan;
+}
+
+/* Scrollbar */
+scrollbar,
+scrollbar slider {
+  background: transparent;
+  min-width: 0px;
+  min-height: 0px;
+  border: none;
+}
+
+scrollbar slider {
+  background: alpha(@cyan, 0.35);
+  margin: 0;
+}

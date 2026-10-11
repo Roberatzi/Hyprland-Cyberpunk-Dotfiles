@@ -1,0 +1,202 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+    transition: all 150ms ease;
+}
+
+window#waybar {
+    background: transparent;
+    color: #d8e6f2;
+}
+
+/* Allgemeine Glasmodule */
+#custom-brand,
+#workspaces,
+#submap,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#pulseaudio,
+#network,
+#battery,
+#tray,
+#clock,
+#custom-power {
+    background: rgba(8, 12, 20, 0.90);
+    margin: 3px 1px;
+    padding: 0 7px;
+    border: 1px solid rgba(62, 91, 112, 0.38);
+}
+
+/* Branding */
+#custom-brand {
+    color: #27e8f4;
+    background: rgba(8, 22, 31, 0.95);
+    border-left: 2px solid #27e8f4;
+    border-right: 1px solid rgba(39, 232, 244, 0.45);
+    margin-left: 0;
+    padding: 0 9px;
+    letter-spacing: 0.5px;
+}
+
+/* Workspaces */
+#workspaces {
+    padding: 0 2px;
+    background: rgba(10, 16, 25, 0.93);
+    border-color: rgba(39, 232, 244, 0.22);
+}
+
+#workspaces button {
+    color: #71869a;
+    padding: 0 7px;
+    margin: 2px 1px;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+    background: rgba(39, 232, 244, 0.10);
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    color: #27e8f4;
+    background: rgba(39, 232, 244, 0.09);
+    border-bottom: 2px solid #27e8f4;
+}
+
+#workspaces button.urgent {
+    color: #ffffff;
+    background: rgba(240, 77, 206, 0.30);
+    border-bottom-color: #f04dce;
+}
+
+#workspaces button.empty {
+    color: #465769;
+}
+
+#submap {
+    color: #f04dce;
+    border-color: rgba(240, 77, 206, 0.35);
+}
+
+/* Uhr links vom Power-Button */
+#clock {
+    color: #27e8f4;
+    background: rgba(6, 13, 22, 0.95);
+    border-top: 2px solid #27e8f4;
+    border-bottom: 1px solid rgba(39, 232, 244, 0.35);
+    padding: 0 12px;
+    margin-left: 3px;
+}
+
+/* Zentraler Power-Button */
+#custom-power {
+    color: #f04dce;
+    background: rgba(25, 10, 29, 0.96);
+    border: 1px solid rgba(240, 77, 206, 0.75);
+    border-top: 2px solid #f04dce;
+    border-bottom: 2px solid #27e8f4;
+    padding: 0 16px;
+    margin: 0 2px 3px 2px;
+    font-size: 15px;
+}
+
+#custom-power:hover {
+    color: #ffffff;
+    background: rgba(240, 77, 206, 0.22);
+    border-color: #27e8f4;
+}
+
+/* Datum rechts vom Power-Button */
+#clock.date {
+    color: #f04dce;
+    background: rgba(20, 10, 25, 0.95);
+    border-top: 2px solid #f04dce;
+    border-bottom: 1px solid rgba(240, 77, 206, 0.35);
+    border-left: 1px solid rgba(240, 77, 206, 0.35);
+    padding: 0 10px;
+    margin-right: 3px;
+}
+
+/* Systemwerte */
+#cpu {
+    color: #27e8f4;
+}
+
+#memory {
+    color: #b18aff;
+}
+
+#disk {
+    color: #f04dce;
+}
+
+#temperature {
+    color: #ffbd69;
+}
+
+#cpu.warning,
+#memory.warning,
+#battery.warning {
+    color: #ffbd69;
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical,
+#battery.critical {
+    color: #ff5277;
+    border-color: rgba(255, 82, 119, 0.75);
+}
+
+/* Audio */
+#pulseaudio {
+    color: #27e8f4;
+}
+
+#pulseaudio.muted {
+    color: #647588;
+}
+
+/* Netzwerk */
+#network {
+    color: #9bdfc5;
+}
+
+#network.disconnected {
+    color: #ff5277;
+}
+
+/* Akku */
+#battery {
+    color: #b9e986;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #27e8f4;
+}
+
+/* Tray */
+#tray {
+    padding: 0 5px;
+}
+
+/* Tooltips */
+tooltip {
+    background: rgba(7, 11, 19, 0.97);
+    color: #d8e6f2;
+    border: 1px solid #27e8f4;
+}
+
+tooltip label {
+    color: #d8e6f2;
+    padding: 3px;
+}
