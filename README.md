@@ -107,6 +107,7 @@ The Hyprland configuration is split into multiple Lua modules to keep settings o
 | [Monitors](hypr/modules/monitors.lua) | Monitor configuration |
 | [Window Rules](hypr/modules/windowrules.lua) | Window-specific behavior |
 | [Input](hypr/modules/input.lua) | Keyboard, mouse, and input settings |
+| [Keybinds](hypr/modules/keybinds.lua) | Keybinds |
 
 The main configuration entry point is [hyprland.lua](hyprland/hyprland.lua), which brings the configuration together.
 
